@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8" />
+        <title>AIB 15th Section 3 Project</title>
+
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+        <style> 
+        a img{border:o;} 
+
+        a{text-decoration: none;
+          color:black;}
+
+        input{
+            width:260px;
+            height:35px;
+        }
+
+        select{
+            width:260px;
+            height:35px;
+        }
+
+        h3 {
+            margin-left: 25px;
+        }
+        </style>
+    </head>
+
+    <body>
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="/" alt="Home">
+                <img src="https://scontent-gmp1-1.xx.fbcdn.net/v/t39.30808-6/279453835_7629105107114656_8677220946437677580_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=_hwBABXCS6oAX-EPfit&_nc_ht=scontent-gmp1-1.xx&oh=00_AfAsYcOd6Mk4Fjyc-W2dtqTxVZftDqqAIWFZceYFJV9HyA&oe=63648B18" 
+                 alt="" width="30" height="30" class="d-inline-block align-text-top">
+                S3PJ
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/about" alt="Information">Information</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/predict" alt="Predict">Predict</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/reference">Reference</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <b>How can I use?</b>
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  Reference 페이지에서는 예측 모델를 돌렸을 때, 인기에 가장 영향을 많이 끼치는 <b>4가지 특성</b>만을 사용하여 레퍼런스 곡을 찾습니다. 인기있는 곡의 각 특성 수치는 다음과 같습니다.</br>
+                  <br>Genre : Pop, Rock, Rap 장르가 인기도 Top 3입니다.
+                  <br>Danceability : 약 0.4 ~ 0.55의 지표와 0.7 이상의 지표를 가져야합니다.
+                  <br>Instrumentalness : 값이 상승할수록 인기도는 떨어집니다.
+                  <br>Loudness : 약 -17db 이상의 지표가져야 합니다.</br>
+                  <br>레퍼런스 곡과 그 특성들을 참고하여 더 좋은 곡을 만들어주세요!</br>
+                </div>
+              </div>
+            </div>
+          </div> 
+
+          <!-- Predict -->
+          <!-- <form class="text-center" method="POST" action="/reference/result" style="margin-top: 30px;"> -->
+          <form class="text-center" style="margin-top: 30px;">
+            <div>
+                <label> Genre : </label>
+                <select name="Genre">
+                    <option>장르(genre)를 선택하세요.</option>
+                    <option>Alternative</option>
+                    <option>Blues</option>
+                    <option>Country</option>
+                    <option>Dance</option>
+                    <option>Electronic</option>
+                    <option>Folk</option>
+                    <option>Hip-Hop</option>
+                    <option>Indie</option>
+                    <option>Jazz</option>
+                    <option>Pop</option>
+                    <option>R&B</option>
+                    <option>Rap</option>
+                    <option>Reggae</option>
+                    <option>Reggaeton</option>
+                    <option>Rock</option>
+                    <option>Ska</option>
+                    <option>Soul</option>
+                    <option>Soundtrack</option>
+                    <option>World</option>
+                </select>   
+            </div>
+            <p></p>
+            <div>
+                <label> Danceability : </label>
+                <input type="number" id="danceability" name="Danceability" placeholder="0.0 ~ 1.0의 수치를 입력하세요." min="0.0" max="1.0" step="0.001" required>
+            </div>
+            <p></p>
+            <div>
+                <label> Instrumentalness : </label>
+                <input type="number" id="instrumentalness" name="Instrumentalness" placeholder="0.0 ~ 1.0의 수치를 입력하세요." min="0.0" max="1.0" step="0.001" required>
+            </div>
+            <p></p>
+            <div>
+                <label> Loudness : </label>
+                <input type="number" id="loudness" name="Loudness" placeholder="-60.0 ~ 0.0의 수치를 입력하세요." min="-60.0" max="0.0" step="0.001" required>
+            </div>
+            <div class="py-4">
+              <button type="button" class="btn btn-primary" onclick="location.href='/reference/result'">Submit</button> 
+              <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+            </div>
+        </form>   
+    </body>
+
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8" />
+        <title>AIB 15th Section 3 Project</title>
+
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+        <style> 
+        a img{border:o;} 
+
+        a{text-decoration: none;
+          color:black;}
+
+        input{
+            width:260px;
+            height:35px;
+        }
+
+        select{
+            width:260px;
+            height:35px;
+        }
+
+        h3 {
+            margin-left: 25px;
+        }
+        </style>
+    </head>
+
+    <body>
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="/" alt="Home">
+                <img src="https://scontent-gmp1-1.xx.fbcdn.net/v/t39.30808-6/279453835_7629105107114656_8677220946437677580_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=_hwBABXCS6oAX-EPfit&_nc_ht=scontent-gmp1-1.xx&oh=00_AfAsYcOd6Mk4Fjyc-W2dtqTxVZftDqqAIWFZceYFJV9HyA&oe=63648B18" 
+                 alt="" width="30" height="30" class="d-inline-block align-text-top">
+                S3PJ
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/about" alt="Information">Information</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/predict" alt="Predict">Predict</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/reference">Reference</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+
+          <p>
+            <h3>어떤 특성을 가져야 인기있는 곡이 될까요?</h3>
+          </p>
+
+          <div class="px-4">
+            <button type="button" class="btn btn-warning btn-sm" onclick="location.href='/about'">특성 설명 보기</button>
+          </div>
+          
+          <!-- Predict -->
+          <form class="text-center" method="POST" action="/predict/result">
+            <div>
+                <label> Genre : </label>
+                <select name="Genre" required>
+                    <option>장르(genre)를 선택하세요.</option>
+                    <option>Alternative</option>
+                    <option>Blues</option>
+                    <option>Country</option>
+                    <option>Dance</option>
+                    <option>Electronic</option>
+                    <option>Folk</option>
+                    <option>Hip-Hop</option>
+                    <option>Indie</option>
+                    <option>Jazz</option>
+                    <option>Pop</option>
+                    <option>R&B</option>
+                    <option>Rap</option>
+                    <option>Reggae</option>
+                    <option>Reggaeton</option>
+                    <option>Rock</option>
+                    <option>Ska</option>
+                    <option>Soul</option>
+                    <option>Soundtrack</option>
+                    <option>World</option>
+                </select>   
+            </div>
+            <p></p>
+            <div>
+                <label> Acousticness : </label>
+                <input type="number" id="acousticness" name="Acousticness" placeholder="0.0 ~ 1.0의 수치를 입력하세요." min="0.0" max="1.0" step="0.001" required>
+            </div>
+            <p></p>
+            <div>
+                <label> Danceability : </label>
+                <input type="number" id="danceability" name="Danceability" placeholder="0.0 ~ 1.0의 수치를 입력하세요." min="0.0" max="1.0" step="0.001" required>
+            </div>
+            <p></p>
+            <div>
+                <label> Duration_m : </label>
+                <input type="number" id="duration_m" name="Duration_m" placeholder="0.00분 이상의 수치를 입력하세요." min="0.0" step="0.01" required>
+            </div>
+            <p></p>
+            <div>
+                <label> Energy : </label>
+                <input type="number" id="energy" name="Energy" placeholder="0.0 ~ 1.0의 수치를 입력하세요." min="0.0" max="1.0" step="0.001" required>
+            </div>
+            <p></p>
+            <div>
+                <label> Instrumentalness : </label>
+                <input type="number" id="instrumentalness" name="Instrumentalness" placeholder="0.0 ~ 1.0의 수치를 입력하세요." min="0.0" max="1.0" step="0.001" required>
+            </div>
+            <p></p>
+            <div>
+                <label> Key : </label>
+                <select name="Key" required>
+                    <option>키(key)를 선택하세요.</option>
+                    <option>C</option>
+                    <option>C#</option>
+                    <option>D</option>
+                    <option>D#</option>
+                    <option>E</option>
+                    <option>F</option>
+                    <option>F#</option>
+                    <option>G</option>
+                    <option>G#</option>
+                    <option>A</option>
+                    <option>A#</option>
+                    <option>B</option>
+                </select>                             
+            </div>
+            <p></p>
+            <div>
+                <label> Liveness : </label>
+                <input type="number" id="liveness" name="Liveness" placeholder="0.0 ~ 1.0의 수치를 입력하세요." min="0.0" max="1.0" step="0.001" required>
+            </div>
+            <p></p>
+            <div>
+                <label> Loudness : </label>
+                <input type="number" id="loudness" name="Loudness" placeholder="-60.0 ~ 0.0의 수치를 입력하세요." min="-60.0" max="0.0" step="0.001" required>
+            </div>
+            <p></p>
+            <div>
+                <label> Mode : </label>
+                <select name="Mode" required>
+                    <option>모드(mode)를 선택하세요.</option>
+                    <option>Major</option>
+                    <option>Minor</option>
+                </select>         
+            </div>
+            <p></p>
+            <div>
+                <label> Speechiness : </label>
+                <input type="number" id="speechiness" name="Speechiness" placeholder="0.0 ~ 1.0의 수치를 입력하세요." min="0.0" max="1.0" step="0.001" required>
+            </div>
+            <p></p>
+            <div>
+                <label> Tempo : </label>
+                <input type="number" id="tempo" name="Tempo" placeholder="0.000 이상의 수치를 입력하세요." min="0.0" step="0.001" required>    
+            </div>
+            <p></p>
+            <div>
+                <label> Time signature : </label>
+                <select name="Time signature" required>
+                    <option>박자표를 선택하세요.</option>
+                    <option>0/4</option>
+                    <option>1/4</option>
+                    <option>2/4</option>
+                    <option>3/4</option>
+                    <option>4/4</option>
+                    <option>5/4</option>
+                </select>                               
+            </div>
+            <p></p>
+            <div>
+                <label> Valence : </label>
+                <input type="number" id="valence" name="Valence" placeholder="0.0 ~ 1.0의 수치를 입력하세요." min="0.0" max="1.0" step="0.001" required>
+            </div>
+            <div class="py-5">
+                <button type="submit" class="btn btn-primary">Predict</button>
+            </div>
+        </form>   
+    </body>
+
+</html>

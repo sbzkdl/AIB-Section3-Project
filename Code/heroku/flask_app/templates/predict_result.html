@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8" />
+        <title>AIB 15th Section 3 Project</title>
+
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+        <style> 
+        a img{border:o;} 
+
+        a{text-decoration: none;
+          color:black;}
+        </style>
+    </head>
+
+    <body>
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="/" alt="Home">
+                <img src="https://scontent-gmp1-1.xx.fbcdn.net/v/t39.30808-6/279453835_7629105107114656_8677220946437677580_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=_hwBABXCS6oAX-EPfit&_nc_ht=scontent-gmp1-1.xx&oh=00_AfAsYcOd6Mk4Fjyc-W2dtqTxVZftDqqAIWFZceYFJV9HyA&oe=63648B18" 
+                 alt="" width="30" height="30" class="d-inline-block align-text-top">
+                S3PJ
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/about" alt="Information">Information</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/predict">Predict</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/reference">Reference</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+
+          <!-- Project result -->
+          <div class="text-center">
+            <p class="fs-2">
+                <span class="badge rounded-pill bg-dark" style="margin-top: 70px;">입력한 값</span>
+            </p>
+          </div>
+          <div class="text-center" style="margin-top: 30px;">
+            <table class="table" style='width:1000px; margin-left: auto; margin-right: auto;'>
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Genre</th>
+                    <th scope="col">Acousticness</th>
+                    <th scope="col">Danceability</th>
+                    <th scope="col">Duration_m</th>
+                    <th scope="col">Energy</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>{{input['genre']}}</td>
+                    <td>{{input['acousticness']}}</td>
+                    <td>{{input['danceability']}}</td>
+                    <td>{{input['duration_m']}}</td>
+                    <td>{{input['energy']}}</td>
+                </tr>
+                </tbody>
+            </table>  
+          <div class="text-center">
+            <table class="table" style='width:1000px; margin-left: auto; margin-right: auto;'>
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Key</th>
+                    <th scope="col">Liveness</th>
+                    <th scope="col">Instrumentalness</th>
+                    <th scope="col">Loudness</th>
+                    <th scope="col">Mode</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>{{input['key']}}</td>
+                    <td>{{input['liveness']}}</td>
+                    <td>{{input['instrumentalness']}}</td>
+                    <td>{{input['loudness']}}</td>
+                    <td>{{input['mode']}}</td>
+                </tr>
+                </tbody>
+            </table>
+          </div>
+          <div class="text-center">
+            <table class="table" style='width:1000px; margin-left: auto; margin-right: auto;'>
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Speechiness</th>
+                    <th scope="col">Tempo</th>
+                    <th scope="col">Time signature</th>
+                    <th scope="col">Valence</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>{{input['speechiness']}}</td>
+                    <td>{{input['tempo']}}</td>
+                    <td>{{input['time_signature']}}</td>
+                    <td>{{input['valence']}}</td>
+                </tr>
+                </tbody>
+            </table>
+          </div>
+          <div class="card text-center" style="width: 23rem; height: auto; margin-top: 50px; margin-left: auto; margin-right: auto;">
+            <div class="card-body">
+                {% if result_input == 0 %}
+                    <h3 class="card-title"><b>Woops!!!</b></h3>
+                    <p></p>
+                    <p class="card-text" style="font-size: 18px;">인기를 얻을 확률이 <b style="color: #dc3545;">낮습니다.</b><br>다른 값을 입력해보세요!</br></p>
+                    <a href="/predict" class="btn btn-danger">다시 입력하기</a>
+                {% else %}
+                    <h3 class="card-title"><b>Baam!!!</b></h3>
+                    <p></p>
+                    <p class="card-text" style="font-size: 18px;">인기를 얻을 확률이 <b style="color: #0d6efd;">높습니다!!!</b>
+                        <br>어떤 음악을 레퍼런스로 삼아야할지</br>찾아보세요!</br>
+                    </p>
+                    <a href="/reference/result" class="btn btn-primary">레퍼런스 곡 찾아보기</a>
+                    <p></p>
+                    <a href="/predict" class="btn btn-danger">다시 입력하기</a>
+                {% endif %}
+            </div>
+          </div>
+    </body>
+
+</html>
